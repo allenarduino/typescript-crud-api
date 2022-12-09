@@ -1,4 +1,4 @@
-## typescript-crud-api2
+## typescript-crud-api
 
 ### Project set up
 
