@@ -3,6 +3,7 @@ import Router from './routes';
 import morgan from 'morgan';
 import connectDB from './config/database';
 import 'dotenv/config';
+const cors = require('cors');
 
 const PORT = process.env.SERVER_PORT || 8000;
 
@@ -21,6 +22,7 @@ app.use(Router);
 app.use(express.json());
 app.use(morgan('tiny'));
 app.use(express.static('public'));
+app.use(cors());
 
 app.listen(PORT, () => {
   console.log('Server is running on port', PORT);
