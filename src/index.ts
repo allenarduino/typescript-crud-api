@@ -1,22 +1,20 @@
 import express, { Application } from 'express';
 import Router from './routes';
 import morgan from 'morgan';
+import connectDB from './config/database';
+import 'dotenv/config';
 
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.SERVER_PORT || 8000;
 
 const app: Application = express();
+
+connectDB;
 
 app.get('/', async (_req, res) => {
   res.send({
     message: 'Typescript CRUD API',
   });
 });
-
-/*app.get('/hello', async (_req, res) => {
-  res.send({
-    message: 'Hello Allen Jones',
-  });
-});*/
 
 app.use(Router);
 
